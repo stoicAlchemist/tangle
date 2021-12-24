@@ -1,0 +1,7 @@
+<%= if @current_user do %>
+  <%= link @current_user.email, to: Routes.user_settings_path(@conn, :edit), class: "menu-item", role: "menuitem", tabindex: "-1" %>
+  <%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "menu-item", role: "menuitem", tabindex: "-1" %>
+<% else %>
+  <%= link "Register", to: Routes.user_registration_path(@conn, :new), class: "menu-item" %>
+  <%= link "Log in", to: Routes.user_session_path(@conn, :new), class: "menu-item" %>
+<% end %>

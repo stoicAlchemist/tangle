@@ -1,0 +1,54 @@
+$mobile-width: 450px;
+$brand-color: #ff4075;
+$background-color: #fca;
+$min-width: 600px;
+
+#header {
+    background-color: $background-color;
+    display: flex;
+    justify-content: center;
+
+    a {
+        img#navbar-logo {
+            max-height: 100%;
+            position: relative;
+            top: .6em;
+        }
+        text-decoration: none;
+        padding: .5em;
+        border-radius: 25px;
+    }
+
+    .pull-right {
+        padding: 0 .5em 1.5em .5em;
+        a {
+            top: 50%;
+            position: relative;
+        }
+    }
+
+    #navbar {
+        padding: 0 .5em 1.5em .5em;
+        min-width: $min-width;
+        a.active {
+            background-color: $brand-color;
+        }
+        @media screen and (max-width: $mobile-width) {
+            font-size: 1.5em;
+            min-width: 400px;
+            height: 2.0em;
+        }
+    }
+}
+
+body {
+    font-family: "Montserrat";
+    margin: 0;
+    div#container {
+        display: flex;
+        justify-content: center;
+    }
+    main.container {
+        min-width: $min-width;
+    }
+}

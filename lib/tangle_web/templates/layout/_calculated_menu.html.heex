@@ -1,0 +1,11 @@
+<%= for menu_item <- menu_items(@conn) do %>
+  <%= link(
+    menu_item.text,
+    to: menu_item.route,
+    class: menu_item.class <> " menu-item"
+  ) %>
+<% end %>
+<%= if @conn.assigns.current_user && function_exported?(Routes, :live_dashboard_path, 2) do %>
+  <%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %>
+<% end %>
+

@@ -7,24 +7,34 @@
     <%= csrf_meta_tag() %>
     <%= live_title_tag assigns[:page_title] || "Tangle", suffix: " · Phoenix Framework" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
-    <header>
-      <section class="container">
-        <nav>
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
-    <%= @inner_content %>
+    <div name='header' id='header'>
+      <div name='navbar' id='navbar' >
+        <!-- Icon -->
+        <%= link to: Routes.page_path(@conn, :index), class: "navbar-logo" do %>
+          <img name="navbar-logo"
+               id="navbar-logo"
+               src={Routes.static_path(@conn, "/images/circles.png")}
+               width="23"
+               height="32"
+               />
+          Tangle
+        <% end %>
+
+        <%= render "_calculated_menu.html", conn: @conn %>
+
+      </div>
+      <div class="pull-right">
+        <%= render "_user_menu.html", assigns %>
+      </div>
+    </div>
+    <div id="container">
+      <%= @inner_content %>
+    </div>
   </body>
 </html>
