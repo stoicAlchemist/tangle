@@ -1,5 +1,9 @@
 defmodule TangleWeb.ProjectController do
+
   use TangleWeb, :controller
+
+  import TangleWeb.UserAuth, only: [require_authenticated_user: 2]
+  plug :require_authenticated_user
 
   alias Tangle.ProjectManagement
   alias Tangle.ProjectManagement.Project

@@ -27,6 +27,19 @@ defmodule Tangle.Accounts do
   end
 
   @doc """
+  Get all users
+
+  ## Examples
+
+      iex> get_all_users()
+      [%User{}]
+
+  """
+  def get_all_users() do
+    Repo.all(User)
+  end
+
+  @doc """
   Gets a user by email and password.
 
   ## Examples

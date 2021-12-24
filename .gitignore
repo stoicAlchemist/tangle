@@ -35,3 +35,4 @@ npm-debug.log
 # Ignore development configurations, don't accidentally commit your configs
 config/dev.exs
 
+.DS_Store
